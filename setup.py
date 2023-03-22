@@ -26,7 +26,7 @@ from setuptools import setup, find_packages
 
 setup(name='colorscript',
       version='1.0.0',
-      description='.',
+      description='ColorScript is a scripting language for designing custom ASCII banners.',
       url='https://github.com/EntySec/ColorScript',
       author='EntySec',
       author_email='entysec@gmail.com',
