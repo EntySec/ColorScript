@@ -24,11 +24,19 @@ SOFTWARE.
 
 import os
 
+from typing import Tuple
+
 from .colors import Colors
 
 
 class ColorScript(object):
-    def __init__(self):
+    """ Main class of colorscript module.
+
+    This main class of colorscript module is intended for providing
+    main ColorScript compiler.
+    """
+
+    def __init__(self) -> None:
         super().__init__()
 
         self.colors = Colors()
@@ -55,37 +63,74 @@ class ColorScript(object):
             '%newline': self.colors.NEWLINE,
         }
 
-    def parse(self, line):
+    def parse(self, line: str) -> str:
+        """ Parse line and remove comments.
+
+        :param str line: line to parse
+        :return str: parsed line
+        """
+
         if line and line[0:8] != "%comment" and not line.isspace():
             for command in self.commands:
                 line = line.replace(command, self.commands[command])
+
         return line
 
-    def libreadline(self, line):
+    def libreadline(self, line: str) -> str:
+        """ Enable libreadline for line.
+
+        :param str line: line to enable libreadline for
+        :return str: str
+        """
+
         if line and line[0:8] != "%comment" and not line.isspace():
             for command in self.commands:
                 line = line.replace(command, f'\001{command}\002')
+
         return line
 
     @staticmethod
-    def _read_file_lines(path):
+    def _read_file_lines(path: str) -> list:
+        """ Read all code lines from file and exclude comments.
+
+        :param str path: path to file
+        :return list: code lines
+        """
+
         lines = []
+
         with open(path) as file:
             for line in file:
                 if line and line[0:8] != "%comment" and not line.isspace():
                     lines.append(line)
+
         return lines
 
     @staticmethod
-    def _reverse_read_lines(path):
+    def _reverse_read_lines(path: str) -> list:
+        """ Read all code lines reversed from file.
+
+        :param str path: path to file
+        :return list: reversed code lines
+        """
+
         lines = []
+
         with open(path) as file:
             for line in reversed(list(file)):
                 lines.append(line)
+
         return lines
 
-    def _reversed_find_last_commands(self, lines):
+    def _reversed_find_last_commands(self, lines: list) -> list:
+        """ Find last commands from code lines.
+
+        :param list lines: code lines
+        :return list: last commands
+        """
+
         buffer_commands = []
+
         for line in lines:
             buffer_line = line
 
@@ -97,11 +142,20 @@ class ColorScript(object):
                 buffer_commands.append(line.strip())
             else:
                 break
+
         buffer_commands.reverse()
+
         return buffer_commands
 
-    def _remove_empty_lines(self, lines):
+    def _remove_empty_lines(self, lines: list) -> list:
+        """ Remove empty lines.
+
+        :param list lines: code lines
+        :return list: cleaned lines
+        """
+
         line_id = -1
+
         for _ in range(len(lines)):
             buffer_line = lines[line_id]
 
@@ -111,10 +165,18 @@ class ColorScript(object):
 
             if buffer_line.isspace():
                 lines.pop(line_id)
+
         return lines
 
-    def parse_colors_script(self, path):
+    def parse_colors_script(self, path: str) -> Tuple[str, None]:
+        """ Parse ColorScript from file.
+
+        :param str path: path to file
+        :return Tuple[str, None]: parsed script or None in case of failure
+        """
+
         result = ""
+
         lines = self._read_file_lines(path)
         reversed_lines = self._reverse_read_lines(path)
 
@@ -127,6 +189,7 @@ class ColorScript(object):
         if path.endswith(self.script_extension):
             try:
                 buffer_commands = ""
+
                 for line in lines:
                     buffer_line = line
 
@@ -143,18 +206,25 @@ class ColorScript(object):
                         for command in self.commands:
                             line = line.partition('%comment')[0]
                             line = line.replace(command, self.commands[command])
+
                         result += line
 
                 return result
-            except Exception:
-                return None
-        else:
-            return None
 
-    def compile_colors_script(self, path, outfile='a.out'):
+            except Exception:
+                pass
+
+    def compile_colors_script(self, path: str, outfile: str = 'a.out') -> None:
+        """ Compile ColorScript / Parse and write to the file.
+
+        :param str path: path to file
+        :param str outfile: path to output file
+        :return None: None
+        """
+
         result = self.parse_colors_script(path)
 
         if result:
-            output = open(outfile, 'wb')
-            output.write(result.encode())
+            output = open(outfile, 'w')
+            output.write(result)
             output.close()
