@@ -18,5 +18,5 @@ pip3 install git+https://github.com/EntySec/ColorScript
 from colorscript import ColorScript
 
 cs = ColorScript()
-print(cs.parse_colors_script('test.colors'))
+print(cs.parse('%blackHello, world!%end'))
 ```
