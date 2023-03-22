@@ -168,7 +168,7 @@ class ColorScript(object):
 
         return lines
 
-    def parse_colors_script(self, path: str) -> Tuple[str, None]:
+    def parse_file(self, path: str) -> Tuple[str, None]:
         """ Parse ColorScript from file.
 
         :param str path: path to file
@@ -214,7 +214,7 @@ class ColorScript(object):
             except Exception:
                 pass
 
-    def compile_colors_script(self, path: str, outfile: str = 'a.out') -> None:
+    def compile_file(self, path: str, outfile: str = 'a.out') -> None:
         """ Compile ColorScript / Parse and write to the file.
 
         :param str path: path to file
