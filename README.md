@@ -7,6 +7,9 @@
     <a href="https://github.com/EntySec/ColorScript">
         <img src="https://img.shields.io/badge/language-Python-blue.svg">
     </a>
+    <a href="https://github.com/EntySec/ColorScript/forks">
+        <img src="https://img.shields.io/github/forks/EntySec/ColorScript?color=green">
+    </a>
     <a href="https://github.com/EntySec/ColorScript/stargazers">
         <img src="https://img.shields.io/github/stars/EntySec/ColorScript?color=yellow">
     </a>
