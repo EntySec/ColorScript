@@ -211,7 +211,7 @@ class ColorScript(object):
 
                 return result
 
-            except Exception:
+            except BaseException:
                 pass
 
     def compile_file(self, path: str, outfile: str = 'a.out') -> None:
