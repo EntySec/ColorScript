@@ -13,6 +13,9 @@
     <a href="https://github.com/EntySec/ColorScript/stargazers">
         <img src="https://img.shields.io/github/stars/EntySec/ColorScript?color=yellow">
     </a>
+    <a href="https://www.codefactor.io/repository/github/EntySec/ColorScript">
+        <img src="https://www.codefactor.io/repository/github/EntySec/ColorScript/badge">
+    </a>
 </p>
 
 ColorScript is a scripting language for designing custom ASCII banners.
