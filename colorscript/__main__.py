@@ -76,19 +76,6 @@ class ColorScript(object):
 
         return line
 
-    def libreadline(self, line: str) -> str:
-        """ Enable libreadline for line.
-
-        :param str line: line to enable libreadline for
-        :return str: str
-        """
-
-        if line and line[0:8] != "%comment" and not line.isspace():
-            for command in self.commands:
-                line = line.replace(command, f'\001{command}\002')
-
-        return line
-
     @staticmethod
     def _read_file_lines(path: str) -> list:
         """ Read all code lines from file and exclude comments.
