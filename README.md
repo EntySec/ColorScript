@@ -1,22 +1,10 @@
 # ColorScript
 
-<p>
-    <a href="https://entysec.com">
-        <img src="https://img.shields.io/badge/developer-EntySec-blue.svg">
-    </a>
-    <a href="https://github.com/EntySec/ColorScript">
-        <img src="https://img.shields.io/badge/language-Python-blue.svg">
-    </a>
-    <a href="https://github.com/EntySec/ColorScript/forks">
-        <img src="https://img.shields.io/github/forks/EntySec/ColorScript?color=green">
-    </a>
-    <a href="https://github.com/EntySec/ColorScript/stargazers">
-        <img src="https://img.shields.io/github/stars/EntySec/ColorScript?color=yellow">
-    </a>
-    <a href="https://www.codefactor.io/repository/github/EntySec/ColorScript">
-        <img src="https://www.codefactor.io/repository/github/EntySec/ColorScript/badge">
-    </a>
-</p>
+[![Developer](https://img.shields.io/badge/developer-EntySec-blue.svg)](https://entysec.com)
+[![Language](https://img.shields.io/badge/language-Python-blue.svg)](https://github.com/EntySec/ColorScript)
+[![Forks](https://img.shields.io/github/forks/EntySec/ColorScript?style=flat&color=green)](https://github.com/EntySec/ColorScript/forks)
+[![Stars](https://img.shields.io/github/stars/EntySec/ColorScript?style=flat&color=yellow)](https://github.com/EntySec/ColorScript/stargazers)
+[![CodeFactor](https://www.codefactor.io/repository/github/EntySec/ColorScript/badge)](https://www.codefactor.io/repository/github/EntySec/ColorScript)
 
 ColorScript is a scripting language for designing custom ASCII banners.
 
