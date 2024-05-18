@@ -64,6 +64,18 @@ class ColorScript(object):
             '%newline': self.colors.NEWLINE,
         }
 
+    def strip(self, line: str) -> str:
+        """ Strip commands from line.
+
+        :param str line: line to strip
+        :return str: stripped line
+        """
+
+        for command in self.commands:
+            line = line.replace(command, '')
+
+        return line
+
     def parse_input(self, line: str) -> str:
         """ Parse line and remove comments but for input.
 
