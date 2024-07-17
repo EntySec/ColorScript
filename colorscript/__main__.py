@@ -27,7 +27,7 @@ import sys
 
 from typing import Tuple
 
-from .colors import Colors
+from .colors import *
 
 
 class ColorScript(object):
@@ -37,32 +37,26 @@ class ColorScript(object):
     main ColorScript compiler.
     """
 
-    def __init__(self) -> None:
-        super().__init__()
-
-        self.colors = Colors()
-        self.script_extension = "colors"
-
-        self.commands = {
-            '%black': self.colors.BLACK,
-            '%red': self.colors.RED,
-            '%green': self.colors.GREEN,
-            '%yellow': self.colors.YELLOW,
-            '%blue': self.colors.BLUE,
-            '%purple': self.colors.PURPLE,
-            '%cyan': self.colors.CYAN,
-            '%white': self.colors.WHITE,
-            '%end': self.colors.END,
-            '%bold': self.colors.BOLD,
-            '%dark': self.colors.DARK,
-            '%bent': self.colors.BENT,
-            '%line': self.colors.LINE,
-            '%twink': self.colors.TWINK,
-            '%back': self.colors.BACK,
-            '%remove': self.colors.REMOVE,
-            '%clear': self.colors.CLEAR,
-            '%newline': self.colors.NEWLINE,
-        }
+    commands = {
+        '%black': BLACK,
+        '%red': RED,
+        '%green': GREEN,
+        '%yellow': YELLOW,
+        '%blue': BLUE,
+        '%purple': PURPLE,
+        '%cyan': CYAN,
+        '%white': WHITE,
+        '%end': END,
+        '%bold': BOLD,
+        '%dark': DARK,
+        '%bent': BENT,
+        '%line': LINE,
+        '%twink': TWINK,
+        '%back': BACK,
+        '%remove': REMOVE,
+        '%clear': CLEAR,
+        '%newline': NEWLINE,
+    }
 
     def strip(self, line: str) -> str:
         """ Strip commands from line.
@@ -202,7 +196,7 @@ class ColorScript(object):
         lines = self._remove_empty_lines(lines)
         lines[-1] = lines[-1].strip('\n') + last_commands
 
-        if path.endswith(self.script_extension):
+        if path.endswith('colors'):
             try:
                 buffer_commands = ""
 
