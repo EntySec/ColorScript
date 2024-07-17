@@ -23,4 +23,3 @@ SOFTWARE.
 """
 
 from .__main__ import ColorScript
-from .colors import Colors
