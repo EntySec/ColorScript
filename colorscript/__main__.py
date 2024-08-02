@@ -70,22 +70,6 @@ class ColorScript(object):
 
         return line
 
-    def parse_input(self, line: str) -> str:
-        """ Parse line and remove comments but for input.
-
-        :param str line: line to parse
-        :return str: parsed line
-        """
-
-        if line and line[0:8] != "%comment" and not line.isspace():
-            for command in self.commands:
-                if sys.platform == 'darwin':
-                    line = line.replace(command, self.commands[command])
-                else:
-                    line = line.replace(command, '\001' + self.commands[command] + '\002')
-
-        return line
-
     def parse(self, line: str) -> str:
         """ Parse line and remove comments.
 
