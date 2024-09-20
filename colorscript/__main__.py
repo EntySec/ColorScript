@@ -216,7 +216,7 @@ class ColorScript(object):
         :return None: None
         """
 
-        result = self.parse_colors_script(path)
+        result = self.parse_file(path)
 
         if result:
             output = open(outfile, 'w')
